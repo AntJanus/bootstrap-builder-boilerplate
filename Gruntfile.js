@@ -1,14 +1,16 @@
 module.exports = function(grunt) {
 
-    require('time-grunt')(grunt);
-
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
 
+    //dirs
+    distFolder: 'dist',
+    bowerFolder: 'bower_components',
+
     //image minification
     imagemin: {
-        dev: {
+        build: {
             png: {
                 options: {
                     optimizationLevel: 7
@@ -18,7 +20,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: './images/',
                     src: ['**/*.png'],
-                    dest: './build/images/',
+                    dest: '<%= distFolder %>/images/',
                     ext: '.png'
                 }
                 ]
@@ -32,44 +34,31 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: './images/',
                     src: ['**/*.jpg'],
-                    dest: './build/images/',
-                    ext: '.jpg'
-                }
-                ]
-            }
-        },
-        release: {
-            png: {
-                options: {
-                    optimizationLevel: 7
-                },
-                files: [
-                {
-                    expand: true,
-                    cwd: './images/',
-                    src: ['**/*.png'],
-                    dest: './dist/images/',
-                    ext: '.png'
-                }
-                ]
-            },
-            jpg: {
-                options: {
-                    progressive: true
-                },
-                files: [
-                {
-                    expand: true,
-                    cwd: './images/',
-                    src: ['**/*.jpg'],
-                    dest: './dist/images/',
+                    dest: '<%= distFolder %>/images/',
                     ext: '.jpg'
                 }
                 ]
             }
         }
-    }
+    },
 
+    //less
+    less: {
+        build: {
+            files: [{
+                expand: true,
+                cwd: 'less/',
+                src: ['**/*.less'],
+                dest: 'dist/css/',
+                ext: '.css'
+            },
+            {
+             "<%= distFolder %>/css/bootstrap.css" : "<%= bowerFolder %>/bootstrap/less/bootstrap.less",
+         }]
+     }
+ },
+
+});
     // Load NPM Tasks
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -79,9 +68,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-livereload');
-
-    grunt.registerTask('release', ['imagemin:release']);
-    grunt.registerTask('build', ['imagemin:dev']);
-
-});
+    grunt.registerTask('build', ['imagemin:build', 'less:build']);
 };
