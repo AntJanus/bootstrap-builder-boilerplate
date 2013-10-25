@@ -8,6 +8,13 @@ module.exports = function(grunt) {
     distFolder: 'dist',
     bowerFolder: 'bower_components',
 
+
+    //clean
+
+    clean: {
+      dist: ['dist']
+  },
+
     //image minification
     imagemin: {
         build: {
@@ -51,12 +58,20 @@ module.exports = function(grunt) {
                 src: ['**/*.less'],
                 dest: 'dist/css/',
                 ext: '.css'
-            },
-            {
-             "<%= distFolder %>/css/bootstrap.css" : "<%= bowerFolder %>/bootstrap/less/bootstrap.less",
-         }]
-     }
- },
+            }]
+        }
+    },
+
+ //copy
+ copy: {
+    build: {
+        expand: true,
+        cwd: '<%= bowerFolder %>/bootstrap/dist/',
+        dest: '<%= distFolder %>/',
+        filters: 'isFile',
+        src: ['**']
+    },
+},
 
 });
     // Load NPM Tasks
@@ -68,5 +83,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-livereload');
-    grunt.registerTask('build', ['imagemin:build', 'less:build']);
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.registerTask('build', ['clean', 'imagemin:build', 'less:build', 'copy:build']);
 };
