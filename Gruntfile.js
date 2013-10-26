@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     //clean
 
     clean: {
-      dist: ['dist']
+      dist: ['dist', '_gh_pages']
   },
 
     //image minification
