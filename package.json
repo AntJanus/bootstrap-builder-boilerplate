@@ -1,17 +1,17 @@
 {
-  "title": "Epidash: API and a Dashboard",
-  "name": "epidash",
-  "description": "Epidash Api and Dashboard for EDUData",
+  "title": "Bootstrap Builder Boilerplate",
+  "name": "bootstrap-builder-boilerplate",
+  "description": "Bootstrap building workspace",
   "version": "0.0.1",
   "author": {
     "name": "Antonin Januska",
     "email": ""
   },
   "homepage": "https://antjanus.com",
-  "bugs": "https://github.com/antjanus/ludus-bootstrap-theme/issues",
+  "bugs": "https://github.com/AntJanus/bootstrap-builder-boilerplate/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/antjanus/ludus-bootstrap-theme.git"
+    "url": "https://github.com/antjanus/bootstrap-builder-boilerplate.git"
   },
   "licenses": [
     {
