@@ -57,10 +57,22 @@ module.exports = function(grunt) {
                 cwd: 'less/',
                 src: ['**/*.less'],
                 dest: 'dist/css/',
-                ext: '.css'
+                ext: '.css',
+                report: 'min'
             }]
-        }
+        },
     },
+
+    cssmin: {
+        build: {
+            expand: true,
+            cwd: '<%= distFolder %>/css/',
+            src: ['*.css', '!*.min.css'],
+            dest: '<%= distFolder %>/css/',
+            ext: '.min.css',
+            report: 'min'
+    }
+},
 
  //copy
  copy: {
@@ -84,5 +96,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-livereload');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.registerTask('build', ['clean', 'imagemin:build', 'copy:build', 'less:build']);
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.registerTask('build', ['clean', 'imagemin:build', 'copy:build', 'less', 'cssmin']);
 };
