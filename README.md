@@ -1,7 +1,7 @@
-Ludus Bootstrap Theme
+Bootstrap Builder Boilerplate
 ========================
 
-![dependency overview](https://david-dm.org/antjanus/ludus-bootstrap-theme.png)
+![dependency overview](https://david-dm.org/antjanus/bootstrap-builder-boilerplate.png)
 
 
 Installing
