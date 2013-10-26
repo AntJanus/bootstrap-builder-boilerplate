@@ -84,5 +84,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-livereload');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.registerTask('build', ['clean', 'imagemin:build', 'less:build', 'copy:build']);
+    grunt.registerTask('build', ['clean', 'imagemin:build', 'copy:build', 'less:build']);
 };
