@@ -38,4 +38,5 @@ The templates folder includes specific templates you want the bootstrap theme to
 Log
 ==========
 
-v0.0.1 - Boilerplate for starting bootstrap themes (soon to be ripped out into its own repo)
+* v0.0.2 - Documentation preview, grunt minification and compilation
+* v0.0.1 - Boilerplate for starting bootstrap themes (soon to be ripped out into its own repo)
