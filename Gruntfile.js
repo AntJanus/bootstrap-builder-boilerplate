@@ -67,7 +67,7 @@ module.exports = function(grunt) {
         build: {
             expand: true,
             cwd: '<%= distFolder %>/css/',
-            src: ['*.css', '!*.min.css'],
+            src: ['*.css', '!*.min.css' ],
             dest: '<%= distFolder %>/css/',
             ext: '.min.css',
             report: 'min'
