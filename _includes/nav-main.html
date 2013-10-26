@@ -11,9 +11,7 @@
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <li{% if page.slug == "getting-started" %} class="active"{% endif %}>
-          <a href="{{ page.base_url }}getting-started">Getting started</a>
-        </li>
+
         <li{% if page.slug == "css" %} class="active"{% endif %}>
           <a href="{{ page.base_url }}css">CSS</a>
         </li>
@@ -22,11 +20,6 @@
         </li>
         <li{% if page.slug == "js" %} class="active"{% endif %}>
           <a href="{{ page.base_url }}javascript">JavaScript</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li{% if page.slug == "about" %} class="active"{% endif %}>
-          <a href="{{ page.base_url }}about">About</a>
         </li>
       </ul>
     </nav>
