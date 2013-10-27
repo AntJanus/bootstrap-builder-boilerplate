@@ -61,6 +61,16 @@ Grunt will:
 * delete the /dist folder whenever `grunt work` or `grunt build` commands are run. These commands will also freshly rebuild it.
 * stop jekyll and the watch process when you stop it. Control+C will stop everything.
 
+The Why
+===================
+
+I've made some important decisions when building this project. Here's what I did and why:
+
+* **Why is Bootstrap loaded separately? Should my theme building not take place with the variables.less file and the rest of the app?** Basically, theme building should be "additive". Meaning that instead of messing with the core framework, it should be treated as untouchable. Most Bootstrap markets, like [wrapbootstrap](http://antjanus.com/out/wrapbootstrap), accept only additive-type themes. It's mostly so that when Bootstrap updates, you can still use the theme and don't have to rebuild it and try to merge changes together.
+* **Why do you constantly rebuild the /dist directory? Why is there a separate directory for those files?** The /dist directory has to always include up to date Bootstrap and other libraries (will include jQuery soon). Any changes done in the /dist directory are meant to be discarded. It's the "clean" directory which people can download your theme from. Your less files, thus, will constantly be up to date as well. Think of it as the "final package" that you give to people. The rest of the workspace is meant to be just that: workspace.
+* **Err..why do you have bootstrap documentation? And why do you keep the Bootstrap docs CSS? Shouldn't it run only with base Bootstrap and my theme?** Actually no, you'll notice that not even Bootstrap uses its vanilla library. That's because the docs CSS overrides some Bootstrap styles in order to showcase them. It's why fixed menus don't jump to the top of the page and why some buttons glow or have an outline. The Bootstrap Docs are the best way to showcase and test individual components.
+* **Why the templates then? I can test everything in the docs!** You're not required to use the templates but again, Bootstrap markets often include template files with theme libraries in order to showcase the theme in the best light. It also allows you to prototype your application quickly with a given look (when building the theme for something of yours and not to sell). Not only that but if you ever use any additional classes, the templates will be able to showcase these.
+
 Log
 ==========
 
