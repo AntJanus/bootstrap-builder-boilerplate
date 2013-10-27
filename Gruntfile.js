@@ -85,6 +85,19 @@ module.exports = function(grunt) {
     },
 },
 
+watch: {
+    options: {
+        debounceDelay: 200,
+        livereload: true,
+        nospawn: true
+    },
+    rebuild: {
+        files: 'less/**/*.less',
+        tasks: ['less', 'cssmin']
+    }
+
+}
+
 });
     // Load NPM Tasks
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -98,4 +111,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.registerTask('build', ['clean', 'imagemin:build', 'copy:build', 'less', 'cssmin']);
+    grunt.registerTask('work', ['clean', 'copy:build', 'less', 'cssmin', 'watch']);
 };

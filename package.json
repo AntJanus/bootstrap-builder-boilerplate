@@ -37,6 +37,7 @@
     "grunt-contrib-imagemin": "~0.3.x",
     "time-grunt": "~0.1.x",
     "grunt-contrib-copy": "~0.4.x",
-    "grunt-contrib-cssmin": "~0.6.x"
+    "grunt-contrib-cssmin": "~0.6.x",
+    "grunt-contrib-watch": "~0.5.x"
   }
 }
