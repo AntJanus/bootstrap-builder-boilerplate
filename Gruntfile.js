@@ -71,8 +71,8 @@ module.exports = function(grunt) {
             dest: '<%= distFolder %>/css/',
             ext: '.min.css',
             report: 'min'
-    }
-},
+        }
+    },
 
  //copy
  copy: {
@@ -85,18 +85,39 @@ module.exports = function(grunt) {
     },
 },
 
+//jekyll
+jekyll: {
+    work: {
+        options: {
+            serve: true
+        }
+    }
+},
+
+
+//watch
 watch: {
     options: {
         debounceDelay: 200,
         livereload: true,
         nospawn: true
     },
-    rebuild: {
+    work: {
         files: 'less/**/*.less',
         tasks: ['less', 'cssmin']
     }
+},
 
+//concurrency
+concurrent: {
+    work: {
+        tasks: ['jekyll', 'watch'],
+        options: {
+            logConcurrentOutput: true
+        }
+    }
 }
+
 
 });
     // Load NPM Tasks
@@ -110,6 +131,8 @@ watch: {
     grunt.loadNpmTasks('grunt-contrib-livereload');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-jekyll');
+    grunt.loadNpmTasks('grunt-concurrent');
     grunt.registerTask('build', ['clean', 'imagemin:build', 'copy:build', 'less', 'cssmin']);
-    grunt.registerTask('work', ['clean', 'copy:build', 'less', 'cssmin', 'watch']);
+    grunt.registerTask('work', ['clean', 'copy:build', 'less', 'cssmin', 'concurrent:work']);
 };
