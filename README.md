@@ -10,9 +10,12 @@ Installing
 Install the dependencies for running the various tasks to prebuild the environment:
 
 * bower
-* grunt / grunt-cli
+* grunt / grunt-cli (thus Node)
+* jekyll
 
-Run `bower install` and run `grunt build` to install bootstrap and compile your less files.
+Run `bower install`, `npm install`, and run `grunt build` to install bootstrap and compile your less files.
+
+To start working on a project and enjoying live reload or other similar tasks, run `grunt work`.
 
 Structure
 ====================
@@ -38,5 +41,6 @@ The templates folder includes specific templates you want the bootstrap theme to
 Log
 ==========
 
+* v0.0.3 - Grunt watch, jekyll, and other tasks
 * v0.0.2 - Documentation preview, grunt minification and compilation
 * v0.0.1 - Boilerplate for starting bootstrap themes (soon to be ripped out into its own repo)

@@ -11,7 +11,7 @@ exclude:          [".editorconfig", ".gitignore", "bower.json", "composer.json",
 port:             9001
 
 # Custom vars
-current_version:  0.0.2
+current_version:  0.0.3
 repo:             https://github.com/AntJanus/bootstrap-builder-boilerplate
 
 download_source:  https://github.com/AntJanus/bootstrap-builder-boilerplate/releases
