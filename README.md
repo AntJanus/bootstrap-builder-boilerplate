@@ -38,6 +38,29 @@ Basically, the bootstrap docs include ALL of the elements and how they look and 
 
 The templates folder includes specific templates you want the bootstrap theme to use and thus you can preview locally (and via github.io if you use github) how your theme will look outside of docs.
 
+Sample Workflow
+====================
+
+Sometimes it's difficult to understand the workflow of a project especially when it seems like it's meant to fulfill the author's needs. Which in this case, it's true. But here's my workflow:
+
+1. clone the repo
+2. install the repo (`bower install`, `npm install`, `grunt build`)
+3. initialize `grunt work`
+4. Start working on bootstrap-theme.less, adjusting what needs to be adjusted.
+5. load up localhost:9001 to see the jekyll output.
+6. check the mock-docs to see how individual elements end up looking (button section for buttons, etc)
+6. code sample templates specific to how I want to use my bootstrap theme
+7. adjust bootstrap-theme.less to fit my vision
+8. check between docs and templates to see consisency.
+
+Grunt will:
+
+* compile and minify any less files in the /less folder. Always  keep the `bootstrap-theme.less` file.
+* start jekyll server and compile bootstrap's mock documentation. This will give you access on <localhost:9001>
+* copy a fresh copy of bootstrap whenever you use `grunt work` or `grunt build` so that whenever bootstrap updates, you can use `bower update` and get any bugfixes. Unfortunately, this doesn't apply to the mock documentation
+* delete the /dist folder whenever `grunt work` or `grunt build` commands are run. These commands will also freshly rebuild it.
+* stop jekyll and the watch process when you stop it. Control+C will stop everything.
+
 Log
 ==========
 
