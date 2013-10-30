@@ -89,7 +89,9 @@ module.exports = function(grunt) {
 jekyll: {
     work: {
         options: {
-            serve: true
+            serve: true,
+            exlude: ['node_modules'],
+            watch: true
         }
     }
 },
